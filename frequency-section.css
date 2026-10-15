@@ -1,0 +1,9 @@
+#cleaning-frequency{scroll-margin-top:145px}
+#cleaning-frequency .frequency-intro{max-width:780px;margin:0 auto;color:#545e6c;font-size:16px;text-align:center}
+#cleaning-frequency .frequency-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1100px;margin:32px auto 0;text-align:left}
+#cleaning-frequency .frequency-card{min-width:0;background:#fff;border:1px solid #e0e6ea;border-top:3px solid #f06178;border-radius:6px;padding:28px}
+#cleaning-frequency .frequency-card h3{margin:0 0 16px;color:#2c3e50;font-style:normal;font-weight:800}
+#cleaning-frequency .frequency-card p{margin:0;color:#545e6c;font-size:16px}
+#cleaning-frequency .frequency-note{max-width:850px;margin:28px auto 0;color:#545e6c;font-size:16px;text-align:center}
+@media(max-width:900px){#cleaning-frequency .frequency-grid{grid-template-columns:1fr;max-width:780px;gap:16px}#cleaning-frequency .frequency-card{padding:24px}#cleaning-frequency .frequency-card h3{margin-bottom:12px}}
+@media(max-width:480px){#cleaning-frequency .frequency-card{padding:22px}#cleaning-frequency .frequency-grid{margin-top:26px}}

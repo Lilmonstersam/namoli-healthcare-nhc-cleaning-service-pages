@@ -1,0 +1,18 @@
+{
+  "name": "namoli-healthcare-medical-centre-cleaning-mockup",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static mockup for Namoli Healthcare medical centre cleaning service page",
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/validate-site.mjs",
+    "validate": "node scripts/validate-site.mjs"
+  },
+  "keywords": [
+    "namoli-healthcare",
+    "mockup",
+    "github-pages"
+  ],
+  "author": "",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,34 @@
+# OS and editor files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local build and runtime files
+_site/
+node_modules/
+package-lock.json
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+
+# Local research, QA and production handover material
+research/
+deployment/
+qa.json
+copy-changes.json
+competitor-outlines.md
+research-and-content-direction.md
+page-copy.md
+preview-*.png
+Medical Centre & Clinic Cleaning Specialists _ Namoli Healthcare.html
+Medical Centre & Clinic Cleaning Specialists _ Namoli Healthcare_files/gtm.js
+Medical Centre & Clinic Cleaning Specialists _ Namoli Healthcare_files/mcfx.js
