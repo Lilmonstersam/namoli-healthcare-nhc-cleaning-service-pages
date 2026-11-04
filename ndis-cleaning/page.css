@@ -1,0 +1,24 @@
+.ndis-page{font-family:'Open Sans',sans-serif;color:#545e6c;font-size:16px;line-height:1.6}
+.ndis-page h1,.ndis-page h2,.ndis-page h3,.ndis-page h4{font-family:Montserrat,sans-serif;color:#2c3e50;line-height:1.2}
+.ndis-page h1{font-size:52px;font-weight:800}
+.ndis-page h1 .font-bold{font-size:52px!important;font-weight:800!important;line-height:1.2}
+.ndis-page h1 .text-lg{font-size:20px!important;line-height:1.2}
+.ndis-page h2{font-size:36px!important;font-weight:800!important;line-height:1.2}
+.ndis-page h3{font-size:18px!important;font-weight:600!important;line-height:1.2}
+.ndis-page p{font-size:16px;line-height:1.6}
+.ndis-page .brand-green{color:#f06178}
+.ndis-page .bg-brand-green{background-color:#f06178}
+.ndis-page .border-brand-green{border-color:#f06178}
+.ndis-page .brand-charcoal{color:#2c3e50}
+.ndis-page .bg-brand-charcoal{background-color:#2c3e50}
+.ndis-page .bg-brand-charcoal h2{color:#fff}
+.ndis-page .bg-brand-blue{background-color:#003b5c}
+.ndis-page .hero-section-ndis{background-image:linear-gradient(rgba(44,62,80,.7),rgba(44,62,80,.7)),url('images/respite-centre-hero.jpg');background-color:#2c3e50;background-size:cover;background-position:center}
+.ndis-page .hero-section-ndis h1,.ndis-page .hero-section-ndis h1 span{color:#fff}
+.ndis-page .accordion-content{display:block!important;max-height:0;overflow:hidden;padding:0!important;transition:max-height .3s ease-in-out}
+.ndis-page section>.container{max-width:1410px}
+.ndis-page section.py-20{padding-top:64px;padding-bottom:64px}
+.ndis-page .grid.grid-cols-1{max-width:1232px;margin-left:auto;margin-right:auto;gap:32px}
+.ndis-page .grid.grid-cols-1>.bg-white{border-radius:10px;padding:16px;box-shadow:0 21px 28px -18px rgba(0,0,0,.2)}
+.ndis-page .grid.grid-cols-1 svg.w-12{width:50px;height:50px}
+@media(max-width:767px){.ndis-page .grid.grid-cols-1{grid-template-columns:1fr;gap:16px}.ndis-page h1 .font-bold{font-size:52px!important}}

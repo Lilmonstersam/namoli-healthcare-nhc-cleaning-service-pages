@@ -31,7 +31,7 @@ jobs:
           node-version: 20
 
       - name: Validate static site
-        run: npm test
+        run: npm run build && npm test
 
       - name: Build Pages artifact
         shell: bash
@@ -39,6 +39,9 @@ jobs:
           mkdir -p _site
           cp index.html frequency-section.css robots.txt _site/
           cp -R "Medical Centre & Clinic Cleaning Specialists _ Namoli Healthcare_files" _site/
+          mkdir -p _site/ndis-cleaning
+          cp ndis-cleaning/index.html ndis-cleaning/page.css ndis-cleaning/page.js _site/ndis-cleaning/
+          cp -R ndis-cleaning/images _site/ndis-cleaning/
           touch _site/.nojekyll
           find _site -name '.DS_Store' -delete
           find _site -type f \( -name 'gtm.js' -o -name 'mcfx.js' \) -delete

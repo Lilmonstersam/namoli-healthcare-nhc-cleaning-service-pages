@@ -16,7 +16,8 @@ async function exists(file) {
   }
 }
 
-for (const requiredFile of [entryFile, stylesheetFile, path.join(root, 'robots.txt')]) {
+const ndisFile = path.join(root, 'ndis-cleaning', 'index.html');
+for (const requiredFile of [entryFile, stylesheetFile, ndisFile, path.join(root, 'robots.txt')]) {
   if (!(await exists(requiredFile))) {
     errors.push(`Missing required file: ${path.relative(root, requiredFile)}`);
   }
@@ -46,7 +47,7 @@ if (errors.length === 0) {
 
     const cleanReference = decodeURIComponent(reference.split(/[?#]/, 1)[0]);
     const target = path.resolve(root, cleanReference);
-    if (!target.startsWith(`${root}${path.sep}`) || !(await exists(target))) {
+    if ((target !== root && !target.startsWith(`${root}${path.sep}`)) || !(await exists(target))) {
       errors.push(`Missing local reference: ${reference}`);
     }
   }
@@ -64,6 +65,31 @@ if (errors.length === 0) {
   }
 
   console.log(`Checked ${localReferences.length} local references.`);
+
+  const ndisHtml = await readFile(ndisFile, 'utf8');
+  const header = (page) => page.slice(page.indexOf('<header'), page.indexOf('</header> <!-- end .header -->') + '</header> <!-- end .header -->'.length);
+  const footer = (page) => page.slice(page.indexOf('<footer id="footer"'));
+  if (header(html).replaceAll('href="#day-surgery-videos"', 'href="index.html#day-surgery-videos"') !== header(ndisHtml)) {
+    errors.push('NDIS header differs from the medical centre header. Run npm run build.');
+  }
+  if (footer(html) !== footer(ndisHtml)) errors.push('NDIS footer differs from the medical centre footer. Run npm run build.');
+  if (!/<head>\s*<base href="\.\.\/">/.test(ndisHtml)) errors.push('NDIS page must resolve shared assets from the mockup root.');
+  for (const reference of ['index.html', 'ndis-cleaning/index.html', 'index.html#day-surgery-videos']) {
+    if (!ndisHtml.includes(`href="${reference}"`)) errors.push(`Missing NDIS navigation link: ${reference}`);
+  }
+  if (!html.includes('href="ndis-cleaning/index.html"')) errors.push('Missing medical centre navigation link to NDIS cleaning.');
+  if (!html.includes('id="day-surgery-videos"')) errors.push('Missing day surgery video section.');
+  for (const id of ['bOsTSZfxcgw', 'yrBbjA_jbWM', 'U6jd7vzJnhs']) {
+    if (!html.includes(`youtube-nocookie.com/embed/${id}`)) errors.push(`Missing day surgery video: ${id}`);
+  }
+  const ndisLocalReferences = [...ndisHtml.matchAll(/<(?:a|img|link|script)\b[^>]*?\b(?:href|src)=["']([^"']+)["'][^>]*>/gi)]
+    .map((match) => match[1].replaceAll('&amp;', '&')).filter((reference) => !ignoredSchemes.test(reference));
+  for (const reference of ndisLocalReferences) {
+    const target = path.resolve(root, decodeURIComponent(reference.split(/[?#]/, 1)[0]));
+    if (!(await exists(target))) errors.push(`Missing NDIS local reference: ${reference}`);
+  }
+  if (!/name="robots" content="noindex, nofollow"/i.test(ndisHtml)) errors.push('NDIS mockup must remain noindex.');
+  console.log(`Checked ${ndisLocalReferences.length} NDIS local references.`);
 }
 
 if (errors.length > 0) {
