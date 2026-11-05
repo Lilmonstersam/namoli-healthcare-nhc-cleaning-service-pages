@@ -38,6 +38,7 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html frequency-section.css robots.txt _site/
+          cp -R images _site/
           cp -R "Medical Centre & Clinic Cleaning Specialists _ Namoli Healthcare_files" _site/
           mkdir -p _site/ndis-cleaning
           cp ndis-cleaning/index.html ndis-cleaning/page.css ndis-cleaning/page.js _site/ndis-cleaning/
