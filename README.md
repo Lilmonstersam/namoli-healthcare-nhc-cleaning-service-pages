@@ -42,6 +42,6 @@ Then open <http://127.0.0.1:8765/> or <http://127.0.0.1:8765/ndis-cleaning/>.
 
 The original saved HTML, Ahrefs evidence, competitor captures, QA output, screenshots and production redirect files remain in the local working folder. They are deliberately excluded from this public deployment repository.
 
-The new frequency section covers daytime, daily and periodic tasks in 129 words. The existing FAQ answer is shortened and links to it. Cost factors, medical-group needs and the practice-manager video remain within existing content slots. The original rounded CTA component now says Request Your Cleaning Quote.
+The frequency section covers daytime, daily and periodic tasks. The existing FAQ links to it. Cost factors, medical-group needs and the practice-manager video remain within existing content slots. The original rounded CTA component says Book Your Free Consultation.
 
 Production content and redirects have **not** been changed. Deploy the copy at the existing canonical URL, replace the existing `/medical-centres/` redirect, redirect `/video/medical-centres/` directly to the destination, update internal links and remove the retired video page from the sitemap. The destination retains a direct link to the existing practice-manager video.

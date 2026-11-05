@@ -56,6 +56,10 @@ if (errors.length === 0) {
     errors.push('The public mockup must retain a noindex, nofollow robots meta tag.');
   }
 
+  if ([...html.matchAll(/<h1\b/gi)].length !== 1) {
+    errors.push('The medical centre page must have exactly one H1.');
+  }
+
   if (/\b(?:localhost|127\.0\.0\.1)\b/i.test(html + stylesheet)) {
     errors.push('Localhost reference found in deployable files.');
   }
